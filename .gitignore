@@ -1,0 +1,25 @@
+# Секреты и локальные настройки (НИКОГДА не загружать в Git!)
+.env
+*.db
+*.sqlite
+
+# Python (Backend)
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+.pytest_cache/
+
+# Node.js и Angular (Frontend)
+node_modules/
+dist/
+.angular/
+
+# Tauri и Rust (Desktop)
+src-tauri/target/
+
+# Системные файлы и IDE
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
