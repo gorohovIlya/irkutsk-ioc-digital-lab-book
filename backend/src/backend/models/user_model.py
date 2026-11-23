@@ -1,5 +1,4 @@
 from typing import Optional
-
 from core.entity_model import EntityModel
 from core.validator import Validator
 from models.post_model import PostModel
