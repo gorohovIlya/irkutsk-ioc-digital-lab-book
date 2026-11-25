@@ -31,43 +31,43 @@ class AppBaseException(Exception):
         )
 
 
-class ArgumentsExeption(AppBaseException):
+class ArgumentsException(AppBaseException):
 
     def __init__(self, field: str, message: str, stack_trace: str = "") -> None:
         super().__init__(field, message, stack_trace)
 
 
-class MaxLengthExeption(AppBaseException):
+class MaxLengthException(AppBaseException):
     def __init__(self, field: str, max_length: int, stack_trace: str = "") -> None:
         message = f"Превышена максимальная длина поля ({max_length} символов)"
         super().__init__(field, message, stack_trace)
 
 
-class MinLengthExeption(AppBaseException):
+class MinLengthException(AppBaseException):
     def __init__(self, field: str, min_length: int, stack_trace: str = "") -> None:
         message = f"Минимальная длина поля должна составлять ({min_length} символов)"
         super().__init__(field, message, stack_trace)
 
 
-class LengthExeption(AppBaseException):
+class LengthException(AppBaseException):
     def __init__(self, field: str, length: int, document: str,
                  stack_trace: str = "") -> None:
         message = f"Некорректная длина {document}! Она должна быть {length} символов"
         super().__init__(field, message, stack_trace)
 
 
-class ValidationExeption(AppBaseException):
+class ValidationException(AppBaseException):
     def __init__(self, field: str, message: str, stack_trace: str = "") -> None:
         super().__init__(field, message, stack_trace)
 
 
-class FileExeption(AppBaseException):
+class FileException(AppBaseException):
     def __init__(self, field: str, document: str, stack_trace: str = ""):
         message = f"Файл {document} не найден!"
         super().__init__(field, message, stack_trace)
 
 
-class EmptyFileExeption(AppBaseException):
+class EmptyFileException(AppBaseException):
     def __init__(self, field: str, document: str, stack_trace: str = ""):
         message = f"Файл {document} пустой"
         super().__init__(field, message, stack_trace)
@@ -78,6 +78,6 @@ class IncorrectEmail(AppBaseException):
         super().__init__(field, message, stack_trace)
 
 
-class OperationExeption(AppBaseException):
+class OperationException(AppBaseException):
     def __init__(self, field: str, message: str, stack_trace: str = ""):
         super().__init__(field, message, stack_trace)

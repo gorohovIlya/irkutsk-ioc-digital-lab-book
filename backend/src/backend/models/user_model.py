@@ -89,7 +89,8 @@ class UserModel(EntityModel):
     def password(self, value: str) -> None:
         Validator.validate(value, str, "password")
         value = value.strip()
-        Validator.validate(value, str, "password", min_len=self.__min_length)
+        Validator.validate(value, str, "password")
+        Validator.incorrect_min_length(value, "password", min_len=self.__min_length)
         self.__password = value
 
     @classmethod

@@ -1,5 +1,5 @@
 from core.abstract_dto import AbstractDto
-from core.exception import OperationExeption
+from core.exception import OperationException
 from core.validator import Validator
 from models.user_model import UserModel
 
@@ -89,7 +89,8 @@ class UserDto(AbstractDto):
     def password(self, value: str):
         Validator.validate(value, str, "password")
         value = value.strip()
-        Validator.validate(value, str, "password", min_len=self.__min_length)
+        Validator.validate(value, str, "password")
+        Validator.incorrect_min_length(value, "password", min_len=self.__min_length)
         self.__password = value
 
     def from_domain_model(self, source: UserModel):
@@ -143,10 +144,10 @@ class UserDto(AbstractDto):
         domain.patronymic = self.patronymic
 
         if self.post_code not in cache.keys():
-            raise OperationExeption("mapping", f"Невозможно получить объект с кодом {self.post_code} из хранилища!")
+            raise OperationException("mapping", f"Невозможно получить объект с кодом {self.post_code} из хранилища!")
 
         if self.subdivision_code not in cache.keys():
-            raise OperationExeption("mapping", f"Невозможно получить объект с кодом {self.subdivision_code} из хранилища!")
+            raise OperationException("mapping", f"Невозможно получить объект с кодом {self.subdivision_code} из хранилища!")
 
         domain.post = cache[self.post_code]
         domain.subdivision = cache[self.subdivision_code]
