@@ -17,20 +17,13 @@ class UserModel(EntityModel):
 
     def __init__(self,name: Optional[str] = None,lastname: Optional[str] = None,patronymic: Optional[str] = None,post: Optional[PostModel] = None,subdivision: Optional[SubdivisionModel] = None,email: Optional[str] = None,password: Optional[str] = None) -> None:
         super().__init__()
-        if name is not None:
-            self.name = name
-        if lastname is not None:
-            self.lastname = lastname
-        if patronymic is not None:
-            self.patronymic = patronymic
-        if post is not None:
-            self.post = post
-        if subdivision is not None:
-            self.subdivision = subdivision
-        if email is not None:
-            self.email = email
-        if password is not None:
-            self.password = password
+        self.name = name
+        self.lastname = lastname
+        self.patronymic = patronymic
+        self.post = post
+        self.subdivision = subdivision
+        self.email = email
+        self.password = password
 
     @property
     def post(self) -> Optional[PostModel]:

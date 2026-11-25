@@ -9,8 +9,7 @@ class EntityModel(AbstractModel):
 
     def __init__(self, name: str = "") -> None:
         super().__init__()
-        if name:
-            self.name = name
+        self.name = name
 
     @property
     def name(self) -> str:
